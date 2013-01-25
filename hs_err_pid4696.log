@@ -1,0 +1,173 @@
+#
+# A fatal error has been detected by the Java Runtime Environment:
+#
+#  EXCEPTION_ACCESS_VIOLATION (0xc0000005) at pc=0x00a413a4, pid=4696, tid=4688
+#
+# JRE version: 6.0_14-b08
+# Java VM: Java HotSpot(TM) Client VM (14.0-b16 mixed mode, sharing windows-x86 )
+# Problematic frame:
+# J  java.util.LinkedList.indexOf(Ljava/lang/Object;)I
+#
+# If you would like to submit a bug report, please visit:
+#   http://java.sun.com/webapps/bugreport/crash.jsp
+#
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x00846800):  JavaThread "main" [_thread_in_Java, id=4688, stack(0x008e0000,0x00930000)]
+
+siginfo: ExceptionCode=0xc0000005, reading address 0x00760028
+
+Registers:
+EAX=0x00760020, EBX=0x09335cd0, ECX=0x09317fc0, EDX=0x076cdf68
+ESP=0x0092fb20, EBP=0x0092fb48, ESI=0x00760020, EDI=0x00000488
+EIP=0x00a413a4, EFLAGS=0x00010287
+
+Top of Stack: (sp=0x0092fb20)
+0x0092fb20:   076cdf68 00000000 09318008 076cdf68
+0x0092fb30:   00000488 13f183b8 09317fc0 076cdf68
+0x0092fb40:   075c1048 075c1140 0092fbf8 00a62b10
+0x0092fb50:   0f49fbf8 2ae75170 00000000 00000001
+0x0092fb60:   00000000 0768bfd8 0768c008 00000001
+0x0092fb70:   07692768 00000000 07692470 07692488
+0x0092fb80:   00000001 07692768 091b1210 0f49fbf8
+0x0092fb90:   076cda50 076cda68 076cda80 2b821b70 
+
+Instructions: (pc=0x00a413a4)
+0x00a41394:   76 0c bf 00 00 00 00 89 7c 24 10 e9 41 00 00 00
+0x00a413a4:   8b 5e 08 8b c2 8b d3 8b c8 89 74 24 14 90 b8 88 
+
+
+Stack: [0x008e0000,0x00930000],  sp=0x0092fb20,  free space=318k
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+J  java.util.LinkedList.indexOf(Ljava/lang/Object;)I
+J  test_getUrls.GetLinks.getLink(Ljava/lang/String;Ljava/lang/String;)Ljava/util/HashSet;
+J  test_getUrls.Main.go()V
+j  test_getUrls.Main.handle()V+1
+j  test_getUrls.Main.<init>()V+96
+j  test_getUrls.Main.main([Ljava/lang/String;)V+3
+v  ~StubRoutines::call_stub
+V  [jvm.dll+0xecabc]
+V  [jvm.dll+0x173d61]
+V  [jvm.dll+0xecb3d]
+V  [jvm.dll+0xf5705]
+V  [jvm.dll+0xfd35d]
+C  [javaw.exe+0x2155]
+C  [javaw.exe+0x833e]
+C  [kernel32.dll+0xb729]
+
+
+---------------  P R O C E S S  ---------------
+
+Java Threads: ( => current thread )
+  0x0300a400 JavaThread "RMI TCP Connection(5)-192.168.21.132" daemon [_thread_blocked, id=1704, stack(0x03600000,0x03650000)]
+  0x03051400 JavaThread "RMI TCP Connection(3)-192.168.21.132" daemon [_thread_in_native, id=5828, stack(0x035b0000,0x03600000)]
+  0x03038c00 JavaThread "JMX server connection timeout 13" daemon [_thread_blocked, id=2272, stack(0x03510000,0x03560000)]
+  0x0301f400 JavaThread "RMI Scheduler(0)" daemon [_thread_blocked, id=5472, stack(0x034c0000,0x03510000)]
+  0x03042400 JavaThread "RMI TCP Connection(1)-192.168.21.132" daemon [_thread_in_native, id=5620, stack(0x03470000,0x034c0000)]
+  0x030c0c00 JavaThread "RMI TCP Accept-0" daemon [_thread_in_native, id=948, stack(0x032f0000,0x03340000)]
+  0x03085400 JavaThread "MySQL Statement Cancellation Timer" daemon [_thread_blocked, id=4976, stack(0x031e0000,0x03230000)]
+  0x02cbbc00 JavaThread "Low Memory Detector" daemon [_thread_blocked, id=5020, stack(0x02f30000,0x02f80000)]
+  0x02cb6000 JavaThread "CompilerThread0" daemon [_thread_blocked, id=4432, stack(0x02ee0000,0x02f30000)]
+  0x02cb4800 JavaThread "Attach Listener" daemon [_thread_blocked, id=4240, stack(0x02e90000,0x02ee0000)]
+  0x02cb3800 JavaThread "Signal Dispatcher" daemon [_thread_blocked, id=5904, stack(0x02e40000,0x02e90000)]
+  0x02c6e000 JavaThread "Finalizer" daemon [_thread_blocked, id=5556, stack(0x02df0000,0x02e40000)]
+  0x02c6c800 JavaThread "Reference Handler" daemon [_thread_blocked, id=5892, stack(0x02da0000,0x02df0000)]
+=>0x00846800 JavaThread "main" [_thread_in_Java, id=4688, stack(0x008e0000,0x00930000)]
+
+Other Threads:
+  0x02c6b000 VMThread [stack: 0x02d50000,0x02da0000] [id=184]
+  0x02cc8c00 WatcherThread [stack: 0x02f80000,0x02fd0000] [id=5784]
+
+VM state:not at safepoint (normal execution)
+
+VM Mutex/Monitor currently owned by a thread: None
+
+Heap
+ def new generation   total 23296K, used 14664K [0x069e0000, 0x08320000, 0x09140000)
+  eden space 20736K,  67% used [0x069e0000, 0x0777c628, 0x07e20000)
+  from space 2560K,  28% used [0x080a0000, 0x08155ba8, 0x08320000)
+  to   space 2560K,   0% used [0x07e20000, 0x07e20000, 0x080a0000)
+ tenured generation   total 309948K, used 302011K [0x09140000, 0x1bfef000, 0x269e0000)
+   the space 309948K,  97% used [0x09140000, 0x1b82efe0, 0x1b82f000, 0x1bfef000)
+ compacting perm gen  total 12288K, used 4445K [0x269e0000, 0x275e0000, 0x2a9e0000)
+   the space 12288K,  36% used [0x269e0000, 0x26e37508, 0x26e37600, 0x275e0000)
+    ro space 8192K,  67% used [0x2a9e0000, 0x2af48d98, 0x2af48e00, 0x2b1e0000)
+    rw space 12288K,  54% used [0x2b1e0000, 0x2b85d0f0, 0x2b85d200, 0x2bde0000)
+
+Dynamic libraries:
+0x00400000 - 0x00424000 	D:\Program Files\Java\jdk1.6.0_14\jre\bin\javaw.exe
+0x7c920000 - 0x7c9b6000 	C:\WINDOWS\system32\ntdll.dll
+0x7c800000 - 0x7c91e000 	C:\WINDOWS\system32\kernel32.dll
+0x77da0000 - 0x77e49000 	C:\WINDOWS\system32\ADVAPI32.dll
+0x77e50000 - 0x77ee3000 	C:\WINDOWS\system32\RPCRT4.dll
+0x77fc0000 - 0x77fd1000 	C:\WINDOWS\system32\Secur32.dll
+0x77d10000 - 0x77da0000 	C:\WINDOWS\system32\USER32.dll
+0x77ef0000 - 0x77f39000 	C:\WINDOWS\system32\GDI32.dll
+0x76300000 - 0x7631d000 	C:\WINDOWS\system32\IMM32.DLL
+0x62c20000 - 0x62c29000 	C:\WINDOWS\system32\LPK.DLL
+0x73fa0000 - 0x7400b000 	C:\WINDOWS\system32\USP10.dll
+0x7c340000 - 0x7c396000 	D:\Program Files\Java\jdk1.6.0_14\jre\bin\msvcr71.dll
+0x6d8b0000 - 0x6db3b000 	D:\Program Files\Java\jdk1.6.0_14\jre\bin\client\jvm.dll
+0x76b10000 - 0x76b3a000 	C:\WINDOWS\system32\WINMM.dll
+0x6d860000 - 0x6d86c000 	D:\Program Files\Java\jdk1.6.0_14\jre\bin\verify.dll
+0x6d3e0000 - 0x6d3ff000 	D:\Program Files\Java\jdk1.6.0_14\jre\bin\java.dll
+0x6d340000 - 0x6d348000 	D:\Program Files\Java\jdk1.6.0_14\jre\bin\hpi.dll
+0x76bc0000 - 0x76bcb000 	C:\WINDOWS\system32\PSAPI.DLL
+0x6d8a0000 - 0x6d8af000 	D:\Program Files\Java\jdk1.6.0_14\jre\bin\zip.dll
+0x6d6c0000 - 0x6d6d3000 	D:\Program Files\Java\jdk1.6.0_14\jre\bin\net.dll
+0x71a20000 - 0x71a37000 	C:\WINDOWS\system32\WS2_32.dll
+0x77be0000 - 0x77c38000 	C:\WINDOWS\system32\msvcrt.dll
+0x71a10000 - 0x71a18000 	C:\WINDOWS\system32\WS2HELP.dll
+0x719c0000 - 0x719fe000 	C:\WINDOWS\System32\mswsock.dll
+0x76ef0000 - 0x76f17000 	C:\WINDOWS\system32\DNSAPI.dll
+0x76d30000 - 0x76d48000 	C:\WINDOWS\system32\iphlpapi.dll
+0x76f80000 - 0x76f88000 	C:\WINDOWS\System32\winrnr.dll
+0x76f30000 - 0x76f5c000 	C:\WINDOWS\system32\WLDAP32.dll
+0x74cc0000 - 0x74cde000 	C:\WINDOWS\system32\wshbth.dll
+0x76060000 - 0x761b6000 	C:\WINDOWS\system32\SETUPAPI.dll
+0x76f90000 - 0x76f96000 	C:\WINDOWS\system32\rasadhlp.dll
+0x60fd0000 - 0x61025000 	C:\WINDOWS\system32\hnetcfg.dll
+0x71a00000 - 0x71a08000 	C:\WINDOWS\System32\wshtcpip.dll
+0x6d380000 - 0x6d39a000 	D:\Program Files\Java\jdk1.6.0_14\jre\bin\instrument.dll
+0x6d610000 - 0x6d619000 	D:\Program Files\Java\jdk1.6.0_14\jre\bin\management.dll
+0x68000000 - 0x68036000 	C:\WINDOWS\system32\rsaenh.dll
+0x759d0000 - 0x75a7f000 	C:\WINDOWS\system32\USERENV.dll
+0x5fdd0000 - 0x5fe25000 	C:\WINDOWS\system32\netapi32.dll
+0x76d10000 - 0x76d28000 	C:\WINDOWS\system32\MPRAPI.dll
+0x77c90000 - 0x77cc2000 	C:\WINDOWS\system32\ACTIVEDS.dll
+0x76de0000 - 0x76e05000 	C:\WINDOWS\system32\adsldpc.dll
+0x76af0000 - 0x76b01000 	C:\WINDOWS\system32\ATL.DLL
+0x76990000 - 0x76ace000 	C:\WINDOWS\system32\ole32.dll
+0x770f0000 - 0x7717b000 	C:\WINDOWS\system32\OLEAUT32.dll
+0x76e50000 - 0x76e5e000 	C:\WINDOWS\system32\rtutils.dll
+0x71b70000 - 0x71b83000 	C:\WINDOWS\system32\SAMLIB.dll
+0x6d7b0000 - 0x6d7b6000 	D:\Program Files\Java\jdk1.6.0_14\jre\bin\rmi.dll
+
+VM Arguments:
+jvm_args: -Xms128M -Xmx512M 
+java_command: test_getUrls.Main
+Launcher Type: SUN_STANDARD
+
+Environment Variables:
+CLASSPATH=D:\Program Files\Java\jdk1.6.0_14\jre\lib\rt.jar;,;
+PATH=c:\Program Files\NVIDIA Corporation\PhysX\Common;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;D:\Program Files\Java\jdk1.6.0_14\bin;D:\Program Files\MySQL\MySQL Server 5.1\bin;C:\MATLAB7\bin\win32;
+USERNAME=Administrator
+OS=Windows_NT
+PROCESSOR_IDENTIFIER=x86 Family 6 Model 15 Stepping 11, GenuineIntel
+
+
+
+---------------  S Y S T E M  ---------------
+
+OS: Windows XP Build 2600 Service Pack 3
+
+CPU:total 2 (2 cores per cpu, 1 threads per core) family 6 model 15 stepping 11, cmov, cx8, fxsr, mmx, sse, sse2, sse3, ssse3
+
+Memory: 4k page, physical 2096164k(355468k free), swap 4038084k(1985308k free)
+
+vm_info: Java HotSpot(TM) Client VM (14.0-b16) for windows-x86 JRE (1.6.0_14-b08), built on May 21 2009 08:03:56 by "java_re" with MS VC++ 7.1
+
+time: Wed Nov 16 17:39:41 2011
+elapsed time: 1518 seconds
+
